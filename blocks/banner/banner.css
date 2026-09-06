@@ -1,0 +1,84 @@
+.banner {
+  --banner-background-color: blue;
+
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  padding: 24px;
+  background-color: var(--banner-background-color);
+  color: var(--text-color);
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner.dark {
+  background-color: #000;
+  color: var(--light-color);
+}
+
+.banner .banner-image {
+  position: absolute;
+  z-index: -1;
+  inset: 24px;
+}
+
+.banner .banner-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 35%);
+}
+
+.banner.dark .banner-image::after {
+  background-color: rgb(0 0 0 / 70%);
+}
+
+.banner .banner-image picture,
+.banner .banner-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner .banner-text {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+}
+
+.banner .banner-text h1,
+.banner .banner-text h2,
+.banner .banner-text h3 {
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.banner .banner-text p {
+  margin: 0;
+}
+
+.banner:has(.banner-image) .banner-text {
+  color: var(--light-color);
+}
+
+.banner.dark .banner-text {
+  color: #000;
+}
+
+@media (width >= 600px) {
+  .banner {
+    min-height: 360px;
+    padding: 40px 32px;
+  }
+
+  .banner .banner-image {
+    inset: 40px;
+  }
+}
