@@ -1,0 +1,48 @@
+.note {
+  --note-color: #004085;
+  --note-background-color: #cce5ff;
+
+  display: flex;
+  gap: 16px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background-color: var(--note-background-color);
+  color: var(--note-color);
+}
+
+.note .icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.note p {
+  margin: 0;
+}
+
+.note p.note-heading {
+  font-weight: 700;
+}
+
+.note.warning {
+  --note-color: #856404;
+  --note-background-color: #fff3cd;
+}
+
+.note.error {
+  --note-color: #721c24;
+  --note-background-color: #f8d7da;
+}
+
+.note.success {
+  --note-color: #155724;
+  --note-background-color: #d4edda;
+}
+
+.note.accent-border {
+  border-left: 4px solid var(--note-color);
+}
+
+.note.no-icon .icon {
+  display: none;
+}
