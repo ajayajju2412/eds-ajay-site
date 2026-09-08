@@ -1,0 +1,35 @@
+.breadcrumb {
+  font-size: var(--body-font-size-xs);
+  padding: 16px 0;
+}
+
+.breadcrumb ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.breadcrumb li:not(:first-child)::before {
+  content: '▶';
+  font-size: 10px;
+  margin: 0 8px;
+  color: var(--dark-color);
+}
+
+.breadcrumb li a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb li a:hover {
+  text-decoration: underline;
+}
