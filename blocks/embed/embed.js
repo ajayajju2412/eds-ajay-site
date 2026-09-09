@@ -29,10 +29,12 @@ const EMBEDS_CONFIG = [
   {
     match: ['youtube', 'youtu.be'],
     embed: embedYoutube,
+    isVideo: true,
   },
   {
     match: ['twitter', 'x.com'],
     embed: embedTwitter,
+    isVideo: false,
   },
 ];
 
@@ -59,9 +61,12 @@ export default function decorate(block) {
   block.textContent = '';
 
   if (placeholder) {
+    const config = EMBEDS_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
     const wrapper = document.createElement('div');
     wrapper.className = 'embed-placeholder';
-    wrapper.innerHTML = '<div class="embed-placeholder-play"><button type="button" title="Play"></button></div>';
+    wrapper.innerHTML = config && config.isVideo === false
+      ? '<div class="embed-placeholder-load"><button type="button">View post</button></div>'
+      : '<div class="embed-placeholder-play"><button type="button" title="Play"></button></div>';
     wrapper.prepend(placeholder);
     wrapper.addEventListener('click', () => {
       loadEmbed(block, link, true);
