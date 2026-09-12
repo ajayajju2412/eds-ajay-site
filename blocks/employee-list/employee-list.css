@@ -1,0 +1,32 @@
+.employee-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-list th,
+.employee-list td {
+  text-align: left;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.employee-list th {
+  font-weight: 700;
+}
+
+.employee-list-load-more {
+  display: block;
+  margin: 16px auto 0;
+  padding: 8px 24px;
+  border: 1px solid var(--link-color);
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--link-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.employee-list-load-more:hover {
+  background-color: var(--link-color);
+  color: #fff;
+}
